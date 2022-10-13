@@ -1,27 +1,28 @@
 package room
 
 import (
-	"main/room/layout"
+	"fmt"
+	"main/config"
 	"math/rand"
 	"time"
 )
 
 type Room struct {
-	Layout layout.RoomLayout
+	Width  int
+	Height int
 }
 
 func GenerateRoom() Room {
+	roomGenConfig := config.GetRoomGen()
+
 	aRoom := Room{}
 
 	rand.Seed(time.Now().UnixNano())
-	roomTypeIndex := rand.Intn(len(layout.Layouts))
 
-	switch layout.Layouts[roomTypeIndex] {
-	case layout.Circle:
-		aRoom.Layout = layout.GenerateCircle()
-	case layout.Rectangle:
-		aRoom.Layout = layout.GenerateRect()
-	}
+	aRoom.Width = rand.Intn(roomGenConfig.MaxWidth-roomGenConfig.MinWidth+1) + roomGenConfig.MinWidth
+	aRoom.Height = rand.Intn(roomGenConfig.MaxHeight-roomGenConfig.MinHeight+1) + roomGenConfig.MinHeight
+
+	fmt.Println(aRoom)
 
 	return aRoom
 }

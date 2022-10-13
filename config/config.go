@@ -15,16 +15,6 @@ type mapGenStruct struct {
 }
 
 type roomGenStruct struct {
-	CircleGeneration circleGenStruct `yaml:"circleGeneration"`
-	RectGeneration   rectGenStruct   `yaml:"rectGeneration"`
-}
-
-type circleGenStruct struct {
-	MinRadius int `yaml:"minRadius"`
-	MaxRadius int `yaml:"maxRadius"`
-}
-
-type rectGenStruct struct {
 	MinHeight int `yaml:"minHeight"`
 	MaxHeight int `yaml:"maxHeight"`
 	MinWidth  int `yaml:"minWidth"`
@@ -49,10 +39,6 @@ func Get() Config {
 	return aConfig
 }
 
-func GetCircleGenConfig() circleGenStruct {
-	return aConfig.MapGeneration.RoomGeneration.CircleGeneration
-}
-
-func GetRectGenConfig() rectGenStruct {
-	return aConfig.MapGeneration.RoomGeneration.RectGeneration
+func GetRoomGen() roomGenStruct {
+	return aConfig.MapGeneration.RoomGeneration
 }

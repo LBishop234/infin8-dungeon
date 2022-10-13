@@ -1,10 +1,6 @@
 mapGeneration:
   roomGeneration:
-    circleGeneration:
-      minRadius: 5
-      maxRadius: 10
-    rectGeneration:
-      minHeight: 3
-      maxHeight: 10
-      minWidth: 3
-      maxWidth: 10
+    minHeight: 3
+    maxHeight: 10
+    minWidth: 3
+    maxWidth: 10
